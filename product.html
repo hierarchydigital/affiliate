@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Affiliate Landing Page</title>
+    <link rel="stylesheet" href="style.css">
+    <script type="module" src="firebaseConfig.js"></script>
+    <script type="module" src="scripts/trackClick.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>Product Name</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="product.html">Product</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="product-details">
+            <div class="product-images">
+                <img src="path/to/your/product-image.jpg" alt="Product Image" id="main-product-image">
+                <!-- Additional images can be added here -->
+                <div class="thumbnail-images">
+                    <img src="path/to/your/product-image1.jpg" alt="Thumbnail 1" onclick="changeImage('path/to/your/product-image1.jpg')">
+                    <img src="path/to/your/product-image2.jpg" alt="Thumbnail 2" onclick="changeImage('path/to/your/product-image2.jpg')">
+                </div>
+            </div>
+
+            <div class="product-info">
+                <h2>Product Description</h2>
+                <p>This is a brief description of the product. Highlight its features and benefits.</p>
+                <h3>Price: $XX.XX</h3>
+                <button id="buy-button" onclick="trackClick('affiliateId')">Buy Now</button>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Your Company Name. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Function to change the main product image
+        function changeImage(imagePath) {
+            document.getElementById('main-product-image').src = imagePath;
+        }
+    </script>
+</body>
+</html>
