@@ -28,5 +28,4 @@ async function registerUser(email, password, username) {
 }
 
 // Example usage
-// Uncomment this line to test user registration
 // registerUser('test@example.com', 'password123', 'testuser');

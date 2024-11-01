@@ -1,14 +1,18 @@
 // getClicks.js
-import { db } from './firebaseConfig.js'; // Make sure to import db from your firebaseConfig
+import { db } from './firebaseConfig.js'; // Ensure you're importing db from firebaseConfig.js
 
 // Function to retrieve click count for a specific affiliate ID
 async function getClickCount(affiliateId) {
-    const affiliateRef = db.collection('affiliateLinks').doc(affiliateId);
-    
+    const affiliateRef = doc(db, 'affiliateLinks', affiliateId);
+
     try {
         const doc = await affiliateRef.get();
-        const clickCount = doc.exists ? doc.data().clickCount : 0;
-        document.getElementById("click-count-display").textContent = `Total Clicks: ${clickCount}`;
+        if (doc.exists) {
+            const clickCount = doc.data().clickCount || 0; // Default to 0 if undefined
+            document.getElementById("click-count-display").textContent = `Total Clicks: ${clickCount}`;
+        } else {
+            document.getElementById("click-count-display").textContent = "Total Clicks: 0";
+        }
     } catch (error) {
         console.error("Error fetching click count: ", error);
     }
